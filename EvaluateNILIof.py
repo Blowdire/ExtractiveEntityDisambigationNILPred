@@ -168,8 +168,6 @@ for dataset in tqdm(ds_names):
             "dataset": dataset,
             "acc": acc,
             "nil_acc": nil_acc,
-            "correct": correct,
-            "wrong": wrong,
             "correct_nil": correct_nil,
             "wrong_nil": wrong_nil,
         }
