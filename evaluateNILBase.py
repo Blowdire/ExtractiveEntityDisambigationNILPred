@@ -30,8 +30,8 @@ def process_answer(answer, candidates):
         return answer
     else:
         modified_answer = answer.split("</ec>")[0]
-        modified_answer = answer.split(": instance of ")[0]
-        modified_answer = answer.split(": instance")[0]
+        modified_answer = modified_answer.split(": instance of ")[0]
+        modified_answer = modified_answer.split(": instance")[0]
         modified_answer = modified_answer.replace("<s>", "")
         modified_answer = modified_answer.replace("</ec", "")
         modified_answer = modified_answer.replace("</s>", "")
@@ -56,10 +56,18 @@ def make_prediction(data_entry, nil_prediction):
     with torch.no_grad():
         question = data_entry["input"]
         context = ""
-        if nil_prediction:
-            context += " Not In Candidates </ec> "
+        # if nil_prediction:
+        #     context += " Not In Candidates </ec> "
+        index = 0
+        added = False
         for item in data_entry["candidates"]:
             context += item + f" </ec> "
+            index += 1
+            if index == 1 and nil_prediction:
+                context += " Not In Candidates </ec> "
+                added = True
+        if not added and nil_prediction:
+            context = " Not In Candidates </ec> " + context
         input_pairs = [question, context]
 
         encodings = tokenizer.encode_plus(
