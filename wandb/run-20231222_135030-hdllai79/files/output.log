@@ -1,0 +1,30 @@
+
+You're using a BartTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+{'loss': 1.8309, 'learning_rate': 2.802061855670103e-05, 'epoch': 0.07}
+{'eval_loss': nan, 'eval_runtime': 26.559, 'eval_samples_per_second': 28.841, 'eval_steps_per_second': 28.841, 'epoch': 0.07}
+{'loss': 1.1225, 'learning_rate': 2.595876288659794e-05, 'epoch': 0.14}
+{'eval_loss': nan, 'eval_runtime': 26.1439, 'eval_samples_per_second': 29.299, 'eval_steps_per_second': 29.299, 'epoch': 0.14}
+{'loss': 0.8399, 'learning_rate': 2.3896907216494846e-05, 'epoch': 0.21}
+{'eval_loss': nan, 'eval_runtime': 26.3725, 'eval_samples_per_second': 29.045, 'eval_steps_per_second': 29.045, 'epoch': 0.21}
+{'loss': 0.7346, 'learning_rate': 2.1855670103092783e-05, 'epoch': 0.27}
+{'eval_loss': nan, 'eval_runtime': 26.5305, 'eval_samples_per_second': 28.872, 'eval_steps_per_second': 28.872, 'epoch': 0.27}
+{'loss': 0.7959, 'learning_rate': 1.9793814432989692e-05, 'epoch': 0.34}
+{'eval_loss': nan, 'eval_runtime': 25.9997, 'eval_samples_per_second': 29.462, 'eval_steps_per_second': 29.462, 'epoch': 0.34}
+{'loss': 0.6692, 'learning_rate': 1.7731958762886598e-05, 'epoch': 0.41}
+{'eval_loss': nan, 'eval_runtime': 25.8819, 'eval_samples_per_second': 29.596, 'eval_steps_per_second': 29.596, 'epoch': 0.41}
+{'loss': 0.6604, 'learning_rate': 1.5670103092783507e-05, 'epoch': 0.48}
+{'eval_loss': nan, 'eval_runtime': 26.3322, 'eval_samples_per_second': 29.09, 'eval_steps_per_second': 29.09, 'epoch': 0.48}
+{'loss': 0.5415, 'learning_rate': 1.3608247422680413e-05, 'epoch': 0.55}
+{'eval_loss': nan, 'eval_runtime': 25.6111, 'eval_samples_per_second': 29.909, 'eval_steps_per_second': 29.909, 'epoch': 0.55}
+{'loss': 0.5353, 'learning_rate': 1.154639175257732e-05, 'epoch': 0.62}
+{'eval_loss': nan, 'eval_runtime': 26.3493, 'eval_samples_per_second': 29.071, 'eval_steps_per_second': 29.071, 'epoch': 0.62}
+{'loss': 0.5225, 'learning_rate': 9.484536082474226e-06, 'epoch': 0.69}
+{'eval_loss': nan, 'eval_runtime': 26.309, 'eval_samples_per_second': 29.116, 'eval_steps_per_second': 29.116, 'epoch': 0.69}
+{'loss': 0.5418, 'learning_rate': 7.422680412371135e-06, 'epoch': 0.76}
+{'eval_loss': nan, 'eval_runtime': 25.6514, 'eval_samples_per_second': 29.862, 'eval_steps_per_second': 29.862, 'epoch': 0.76}
+{'loss': 0.5262, 'learning_rate': 5.360824742268042e-06, 'epoch': 0.82}
+{'eval_loss': nan, 'eval_runtime': 26.1082, 'eval_samples_per_second': 29.339, 'eval_steps_per_second': 29.339, 'epoch': 0.82}
+{'loss': 0.425, 'learning_rate': 3.2989690721649484e-06, 'epoch': 0.89}
+{'eval_loss': nan, 'eval_runtime': 26.5478, 'eval_samples_per_second': 28.854, 'eval_steps_per_second': 28.854, 'epoch': 0.89}
+{'loss': 0.4573, 'learning_rate': 1.2371134020618557e-06, 'epoch': 0.96}
+{'eval_loss': nan, 'eval_runtime': 26.5341, 'eval_samples_per_second': 28.868, 'eval_steps_per_second': 28.868, 'epoch': 0.96}

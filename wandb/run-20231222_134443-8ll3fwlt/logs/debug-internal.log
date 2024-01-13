@@ -1,0 +1,201 @@
+2023-12-22 13:44:43,554 INFO    StreamThr :140062 [internal.py:wandb_internal():86] W&B internal server running at pid: 140062, started at: 2023-12-22 13:44:43.553763
+2023-12-22 13:44:43,554 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status
+2023-12-22 13:44:43,563 INFO    WriterThread:140062 [datastore.py:open_for_write():85] open: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/run-8ll3fwlt.wandb
+2023-12-22 13:44:43,564 DEBUG   SenderThread:140062 [sender.py:send():379] send: header
+2023-12-22 13:44:43,573 DEBUG   SenderThread:140062 [sender.py:send():379] send: run
+2023-12-22 13:44:44,167 INFO    SenderThread:140062 [dir_watcher.py:__init__():211] watching files in: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files
+2023-12-22 13:44:44,167 INFO    SenderThread:140062 [sender.py:_start_run_threads():1122] run started: 8ll3fwlt with start time 1703249083.553923
+2023-12-22 13:44:44,167 DEBUG   SenderThread:140062 [sender.py:send_request():406] send_request: summary_record
+2023-12-22 13:44:44,168 INFO    SenderThread:140062 [sender.py:_save_file():1376] saving file wandb-summary.json with policy end
+2023-12-22 13:44:44,174 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: check_version
+2023-12-22 13:44:44,174 DEBUG   SenderThread:140062 [sender.py:send_request():406] send_request: check_version
+2023-12-22 13:44:44,382 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: run_start
+2023-12-22 13:44:44,392 DEBUG   HandlerThread:140062 [system_info.py:__init__():31] System info init
+2023-12-22 13:44:44,392 DEBUG   HandlerThread:140062 [system_info.py:__init__():46] System info init done
+2023-12-22 13:44:44,392 INFO    HandlerThread:140062 [system_monitor.py:start():181] Starting system monitor
+2023-12-22 13:44:44,392 INFO    SystemMonitor:140062 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-22 13:44:44,393 INFO    HandlerThread:140062 [system_monitor.py:probe():201] Collecting system info
+2023-12-22 13:44:44,393 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started cpu monitoring
+2023-12-22 13:44:44,394 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started disk monitoring
+2023-12-22 13:44:44,394 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started gpu monitoring
+2023-12-22 13:44:44,395 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started memory monitoring
+2023-12-22 13:44:44,395 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started network monitoring
+2023-12-22 13:44:44,404 DEBUG   HandlerThread:140062 [system_info.py:probe():195] Probing system
+2023-12-22 13:44:44,406 DEBUG   HandlerThread:140062 [system_info.py:_probe_git():180] Probing git
+2023-12-22 13:44:44,411 DEBUG   HandlerThread:140062 [system_info.py:_probe_git():188] Probing git done
+2023-12-22 13:44:44,411 DEBUG   HandlerThread:140062 [system_info.py:probe():240] Probing system done
+2023-12-22 13:44:44,411 DEBUG   HandlerThread:140062 [system_monitor.py:probe():210] {'os': 'Linux-6.2.0-39-generic-x86_64-with-glibc2.35', 'python': '3.10.12', 'heartbeatAt': '2023-12-22T12:44:44.404897', 'startedAt': '2023-12-22T12:44:43.549932', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '<python with no main file>', 'git': {'remote': 'https://github.com/Blowdire/ExtractiveEntityDisambigationNILPred.git', 'commit': '0dc689708c047097468226e6227b256144cd4d80'}, 'email': 'agazzi.ruben99@gmail.com', 'root': '/home/rub/Documents/Borsa/Tesi/TESTFS', 'host': 'rub-System-Product-Name', 'username': 'rub', 'executable': '/bin/python3', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 3315.29825, 'min': 2200.0, 'max': 3600.0}, 'cpu_freq_per_core': [{'current': 2216.016, 'min': 2200.0, 'max': 3600.0}, {'current': 3872.633, 'min': 2200.0, 'max': 3600.0}, {'current': 3841.878, 'min': 2200.0, 'max': 3600.0}, {'current': 3705.127, 'min': 2200.0, 'max': 3600.0}, {'current': 2228.866, 'min': 2200.0, 'max': 3600.0}, {'current': 3816.091, 'min': 2200.0, 'max': 3600.0}, {'current': 2467.652, 'min': 2200.0, 'max': 3600.0}, {'current': 4192.292, 'min': 2200.0, 'max': 3600.0}, {'current': 3577.077, 'min': 2200.0, 'max': 3600.0}, {'current': 3638.195, 'min': 2200.0, 'max': 3600.0}, {'current': 2268.234, 'min': 2200.0, 'max': 3600.0}, {'current': 3959.518, 'min': 2200.0, 'max': 3600.0}], 'disk': {'total': 438.5479202270508, 'used': 269.43062591552734}, 'gpu': 'NVIDIA GeForce RTX 3060', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3060', 'memory_total': 12884901888}], 'memory': {'total': 31.261329650878906}}
+2023-12-22 13:44:44,411 INFO    HandlerThread:140062 [system_monitor.py:probe():211] Finished collecting system info
+2023-12-22 13:44:44,411 INFO    HandlerThread:140062 [system_monitor.py:probe():214] Publishing system info
+2023-12-22 13:44:44,411 DEBUG   HandlerThread:140062 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-12-22 13:44:44,411 DEBUG   HandlerThread:140062 [system_info.py:_save_pip():67] Saving pip packages done
+2023-12-22 13:44:44,412 INFO    HandlerThread:140062 [system_monitor.py:probe():216] Finished publishing system info
+2023-12-22 13:44:44,413 DEBUG   SenderThread:140062 [sender.py:send():379] send: files
+2023-12-22 13:44:44,413 INFO    SenderThread:140062 [sender.py:_save_file():1376] saving file wandb-metadata.json with policy now
+2023-12-22 13:44:44,421 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-22 13:44:44,421 DEBUG   SenderThread:140062 [sender.py:send_request():406] send_request: stop_status
+2023-12-22 13:44:44,744 DEBUG   SenderThread:140062 [sender.py:send():379] send: telemetry
+2023-12-22 13:44:44,745 DEBUG   SenderThread:140062 [sender.py:send():379] send: config
+2023-12-22 13:44:44,745 DEBUG   SenderThread:140062 [sender.py:send():379] send: metric
+2023-12-22 13:44:44,745 DEBUG   SenderThread:140062 [sender.py:send():379] send: telemetry
+2023-12-22 13:44:44,745 DEBUG   SenderThread:140062 [sender.py:send():379] send: metric
+2023-12-22 13:44:44,746 WARNING SenderThread:140062 [sender.py:send_metric():1327] Seen metric with glob (shouldn't happen)
+2023-12-22 13:44:45,084 INFO    wandb-upload_0:140062 [upload_job.py:push():131] Uploaded file /tmp/tmpr811valhwandb/qnt4ypyz-wandb-metadata.json
+2023-12-22 13:44:45,169 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_created():272] file/dir created: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:44:45,169 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_created():272] file/dir created: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/requirements.txt
+2023-12-22 13:44:45,169 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_created():272] file/dir created: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/wandb-summary.json
+2023-12-22 13:44:45,169 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_created():272] file/dir created: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/wandb-metadata.json
+2023-12-22 13:44:47,168 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:44:48,159 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: pause
+2023-12-22 13:44:48,159 INFO    HandlerThread:140062 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-22 13:44:48,159 INFO    HandlerThread:140062 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-22 13:44:48,159 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-22 13:44:48,159 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-22 13:44:48,159 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-22 13:44:48,160 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined disk monitor
+2023-12-22 13:44:48,160 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-22 13:44:48,254 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-22 13:44:48,255 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined memory monitor
+2023-12-22 13:44:48,255 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined network monitor
+2023-12-22 13:44:48,255 DEBUG   SenderThread:140062 [sender.py:send():379] send: stats
+2023-12-22 13:44:49,256 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status_report
+2023-12-22 13:44:54,257 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status_report
+2023-12-22 13:44:59,258 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status_report
+2023-12-22 13:44:59,421 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-22 13:44:59,421 DEBUG   SenderThread:140062 [sender.py:send_request():406] send_request: stop_status
+2023-12-22 13:45:04,625 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status_report
+2023-12-22 13:45:08,297 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: resume
+2023-12-22 13:45:08,298 INFO    HandlerThread:140062 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-22 13:45:08,298 INFO    HandlerThread:140062 [system_monitor.py:start():181] Starting system monitor
+2023-12-22 13:45:08,298 INFO    SystemMonitor:140062 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-22 13:45:08,298 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started cpu monitoring
+2023-12-22 13:45:08,298 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started disk monitoring
+2023-12-22 13:45:08,298 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started gpu monitoring
+2023-12-22 13:45:08,299 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started memory monitoring
+2023-12-22 13:45:08,299 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started network monitoring
+2023-12-22 13:45:08,301 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: pause
+2023-12-22 13:45:08,301 INFO    HandlerThread:140062 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-22 13:45:08,301 INFO    HandlerThread:140062 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-22 13:45:08,301 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-22 13:45:08,301 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-22 13:45:08,301 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-22 13:45:08,302 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined disk monitor
+2023-12-22 13:45:08,302 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-22 13:45:08,360 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-22 13:45:08,360 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined memory monitor
+2023-12-22 13:45:08,361 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined network monitor
+2023-12-22 13:45:08,361 DEBUG   SenderThread:140062 [sender.py:send():379] send: stats
+2023-12-22 13:45:10,362 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status_report
+2023-12-22 13:45:10,848 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: resume
+2023-12-22 13:45:10,848 INFO    HandlerThread:140062 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-22 13:45:10,848 INFO    HandlerThread:140062 [system_monitor.py:start():181] Starting system monitor
+2023-12-22 13:45:10,848 INFO    SystemMonitor:140062 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-22 13:45:10,848 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started cpu monitoring
+2023-12-22 13:45:10,849 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started disk monitoring
+2023-12-22 13:45:10,849 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started gpu monitoring
+2023-12-22 13:45:10,849 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started memory monitoring
+2023-12-22 13:45:10,849 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started network monitoring
+2023-12-22 13:45:13,176 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:45:14,421 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-22 13:45:14,422 DEBUG   SenderThread:140062 [sender.py:send_request():406] send_request: stop_status
+2023-12-22 13:45:15,176 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:45:15,784 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status_report
+2023-12-22 13:45:16,177 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/config.yaml
+2023-12-22 13:45:17,177 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:45:19,177 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:45:21,178 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:45:21,631 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status_report
+2023-12-22 13:45:23,178 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:45:25,179 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:45:26,945 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status_report
+2023-12-22 13:45:27,179 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:45:29,180 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:45:29,421 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-22 13:45:29,421 DEBUG   SenderThread:140062 [sender.py:send_request():406] send_request: stop_status
+2023-12-22 13:45:31,180 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:45:32,381 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status_report
+2023-12-22 13:45:35,182 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:45:37,182 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:45:37,420 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status_report
+2023-12-22 13:45:38,197 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: pause
+2023-12-22 13:45:38,197 INFO    HandlerThread:140062 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-22 13:45:38,197 INFO    HandlerThread:140062 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-22 13:45:38,197 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-22 13:45:38,198 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined disk monitor
+2023-12-22 13:45:38,198 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-22 13:45:38,198 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-22 13:45:38,198 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-22 13:45:38,257 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-22 13:45:38,258 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined memory monitor
+2023-12-22 13:45:38,258 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined network monitor
+2023-12-22 13:45:38,258 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: resume
+2023-12-22 13:45:38,258 INFO    HandlerThread:140062 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-22 13:45:38,258 INFO    HandlerThread:140062 [system_monitor.py:start():181] Starting system monitor
+2023-12-22 13:45:38,258 INFO    SystemMonitor:140062 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-22 13:45:38,258 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: pause
+2023-12-22 13:45:38,258 INFO    HandlerThread:140062 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-22 13:45:38,258 INFO    HandlerThread:140062 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-22 13:45:38,258 DEBUG   SenderThread:140062 [sender.py:send():379] send: stats
+2023-12-22 13:45:38,259 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started cpu monitoring
+2023-12-22 13:45:38,259 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-22 13:45:38,259 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-22 13:45:38,259 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-22 13:45:38,260 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-22 13:45:38,260 DEBUG   SenderThread:140062 [sender.py:send():379] send: stats
+2023-12-22 13:45:38,269 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: resume
+2023-12-22 13:45:38,269 INFO    HandlerThread:140062 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-22 13:45:38,269 INFO    HandlerThread:140062 [system_monitor.py:start():181] Starting system monitor
+2023-12-22 13:45:38,269 INFO    SystemMonitor:140062 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-22 13:45:38,269 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started cpu monitoring
+2023-12-22 13:45:38,269 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started disk monitoring
+2023-12-22 13:45:38,270 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started gpu monitoring
+2023-12-22 13:45:38,270 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started memory monitoring
+2023-12-22 13:45:38,270 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started network monitoring
+2023-12-22 13:45:38,443 DEBUG   SenderThread:140062 [sender.py:send():379] send: config
+2023-12-22 13:45:38,444 DEBUG   SenderThread:140062 [sender.py:send():379] send: metric
+2023-12-22 13:45:38,444 DEBUG   SenderThread:140062 [sender.py:send():379] send: metric
+2023-12-22 13:45:38,444 WARNING SenderThread:140062 [sender.py:send_metric():1327] Seen metric with glob (shouldn't happen)
+2023-12-22 13:45:38,739 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: pause
+2023-12-22 13:45:38,739 INFO    HandlerThread:140062 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-22 13:45:38,739 INFO    HandlerThread:140062 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-22 13:45:38,740 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-22 13:45:38,740 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-22 13:45:38,740 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-22 13:45:38,740 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined disk monitor
+2023-12-22 13:45:38,740 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-22 13:45:38,800 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-22 13:45:38,800 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined memory monitor
+2023-12-22 13:45:38,800 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined network monitor
+2023-12-22 13:45:38,801 DEBUG   SenderThread:140062 [sender.py:send():379] send: stats
+2023-12-22 13:45:39,183 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:45:41,183 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/output.log
+2023-12-22 13:45:42,803 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status_report
+2023-12-22 13:45:44,421 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-22 13:45:44,422 DEBUG   SenderThread:140062 [sender.py:send_request():406] send_request: stop_status
+2023-12-22 13:45:48,685 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status_report
+2023-12-22 13:45:49,186 INFO    Thread-12 :140062 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/rub/Documents/Borsa/Tesi/TESTFS/wandb/run-20231222_134443-8ll3fwlt/files/config.yaml
+2023-12-22 13:45:53,919 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status_report
+2023-12-22 13:45:58,920 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: status_report
+2023-12-22 13:45:59,363 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: resume
+2023-12-22 13:45:59,363 INFO    HandlerThread:140062 [handler.py:handle_request_resume():719] starting system metrics thread or process
+2023-12-22 13:45:59,363 INFO    HandlerThread:140062 [system_monitor.py:start():181] Starting system monitor
+2023-12-22 13:45:59,363 INFO    SystemMonitor:140062 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-12-22 13:45:59,364 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started cpu monitoring
+2023-12-22 13:45:59,364 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started disk monitoring
+2023-12-22 13:45:59,364 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started gpu monitoring
+2023-12-22 13:45:59,365 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started memory monitoring
+2023-12-22 13:45:59,365 INFO    SystemMonitor:140062 [interfaces.py:start():190] Started network monitoring
+2023-12-22 13:45:59,366 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: pause
+2023-12-22 13:45:59,366 INFO    HandlerThread:140062 [handler.py:handle_request_pause():728] stopping system metrics thread or process
+2023-12-22 13:45:59,366 INFO    HandlerThread:140062 [system_monitor.py:finish():190] Stopping system monitor
+2023-12-22 13:45:59,366 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-12-22 13:45:59,366 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-12-22 13:45:59,366 DEBUG   SystemMonitor:140062 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-12-22 13:45:59,367 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-22 13:45:59,367 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined disk monitor
+2023-12-22 13:45:59,430 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-22 13:45:59,430 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined memory monitor
+2023-12-22 13:45:59,430 INFO    HandlerThread:140062 [interfaces.py:finish():202] Joined network monitor
+2023-12-22 13:45:59,430 DEBUG   HandlerThread:140062 [handler.py:handle_request():144] handle_request: stop_status
+2023-12-22 13:45:59,431 DEBUG   SenderThread:140062 [sender.py:send():379] send: stats
+2023-12-22 13:45:59,431 DEBUG   SenderThread:140062 [sender.py:send_request():406] send_request: stop_status
