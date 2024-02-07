@@ -113,9 +113,9 @@ def make_prediction(data_entry, nil_prediction):
 
 def load_model(enriched):
     modelFolder = (
-        "./robertaLarge/checkpoint-26000/"
+        "./robertaLarge/checkpoint-2625/"
         if not enriched
-        else "./robertaLargeInstanceOf/checkpoint-17500/"
+        else "./robertaLargeInstanceOf/checkpoint-2625/"
     )
     print("Loading model from", modelFolder)
     tokenizer = AutoTokenizer.from_pretrained(modelFolder)

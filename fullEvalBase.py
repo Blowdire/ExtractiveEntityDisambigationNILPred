@@ -6,10 +6,11 @@ import gc
 import torch.nn.functional as F
 from tqdm import tqdm
 import pandas as pd
+import random
 
-tokenizer = AutoTokenizer.from_pretrained("./robertaLarge/checkpoint-2625")
+tokenizer = AutoTokenizer.from_pretrained("./robertaLargeNil/checkpoint-2772")
 model = AutoModelForQuestionAnswering.from_pretrained(
-    "./robertaLarge/checkpoint-2625", return_dict=False
+    "./robertaLargeNil/checkpoint-2772", return_dict=False
 ).to("cuda:0")
 
 
@@ -58,6 +59,7 @@ def make_prediction(data_entry, nil_prediction):
         context = ""
         # if nil_prediction:
         #     context += " Not In Candidates </ec> "
+        random.shuffle(data_entry["candidates"])
         index = 0
         added = False
         for item in data_entry["candidates"]:
@@ -96,11 +98,12 @@ def make_prediction(data_entry, nil_prediction):
 
         answer = process_answer(tokenizer.decode(answer_tokens), context)
         classified = 0
-        if (mean_score < 0.494949) and nil_prediction:
-            answer = "Not In Candidates"
-        else:
-            if answer == "":
+        if nil_prediction:
+            if (mean_score < 0.494949) and nil_prediction:
                 answer = "Not In Candidates"
+            else:
+                if answer == "":
+                    answer = "Not In Candidates"
         del encodings
         del end_scores
         del start_scores
@@ -120,11 +123,6 @@ def make_prediction(data_entry, nil_prediction):
 
 
 def get_dataset(ds_path):
-    if ds_path == "./test.jsonl":
-        with open(ds_path, "r") as file:
-            dataset = json.load(file)
-            return dataset
-
     dataset = []
 
     with open(ds_path, "r") as file:
@@ -138,22 +136,21 @@ def get_dataset(ds_path):
 
 ds_names = [
     # "aida",
-    # "msnbc",
+    "msnbc",
     # "ace2004",
     # "aquaint",
     # "clueweb",
-    "wiki",
+    # "wiki",
 ]
 
 preformances = []
 
 for dataset in tqdm(ds_names):
-    ds = get_dataset(f"./nil-el-test.jsonl")
-    print(len(ds))
+    ds = get_dataset(f"./Datasets/Base/{dataset}-test-kilt.jsonl")
     results = []
     for item in tqdm(ds):
         try:
-            pred = make_prediction(item, True)
+            pred = make_prediction(item, False)
             results.append(pred)
         except Exception as e:
             print(e)
@@ -188,4 +185,4 @@ for dataset in tqdm(ds_names):
         }
     )
 perf_df = pd.DataFrame(preformances)
-perf_df.to_csv("./results/nil_base.csv")
+perf_df.to_csv("./results/base.csv")

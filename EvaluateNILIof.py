@@ -6,10 +6,11 @@ import gc
 import torch.nn.functional as F
 from tqdm import tqdm
 import pandas as pd
+import random
 
-tokenizer = AutoTokenizer.from_pretrained("./robertaLargeIofNil/checkpoint-2178")
+tokenizer = AutoTokenizer.from_pretrained("./robertaLargeInstanceOf/checkpoint-17500")
 model = AutoModelForQuestionAnswering.from_pretrained(
-    "./robertaLargeIofNil/checkpoint-2178", return_dict=False
+    "./robertaLargeInstanceOf/checkpoint-17500", return_dict=False
 ).to("cuda:0")
 
 
@@ -44,7 +45,7 @@ def process_answer(answer, candidates):
             modified_answer = modified_answer.replace("(", "")
             modified_answer = modified_answer.replace(")", "")
         if modified_answer == "Not In Candidates":
-            modified_answer = "NIL"
+            modified_answer = "Not In Candidates"
         if modified_answer == "":
             modified_answer = "Not In Candidates"
         if modified_answer not in candidates:
@@ -56,6 +57,9 @@ def make_prediction(data_entry, nil_prediction):
     with torch.no_grad():
         question = data_entry["input"]
         context = ""
+        # Randomize candidates
+
+        random.shuffle(data_entry["candidates"])
         # if nil_prediction:
         #     context += " Not In Candidates </ec> "
         index = 0
@@ -96,7 +100,7 @@ def make_prediction(data_entry, nil_prediction):
 
         answer = process_answer(tokenizer.decode(answer_tokens), context)
         classified = 0
-        if (mean_score < 0.9) and nil_prediction:
+        if (mean_score < 0.494949) and nil_prediction:
             answer = "Not In Candidates"
         else:
             if answer == "":
@@ -132,17 +136,18 @@ def get_dataset(ds_path):
 
 
 ds_names = [
-    "msnbc",
-    "ace2004",
-    "aquaint",
-    "clueweb",
-    # "wiki",
+    # "aida",
+    # "msnbc",
+    # "ace2004",
+    # "aquaint",
+    # "clueweb",
+    "wiki",
 ]
 
 preformances = []
 
 for dataset in tqdm(ds_names):
-    ds = get_dataset(f"./Datasets/InstanceOf/{dataset}_test_instanceof-nil.jsonl")
+    ds = get_dataset(f"./nil_el_test_instanceof.jsonl")
     results = []
     for item in tqdm(ds):
         try:
