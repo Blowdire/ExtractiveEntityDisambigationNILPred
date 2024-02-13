@@ -6,10 +6,13 @@ import gc
 import torch.nn.functional as F
 from tqdm import tqdm
 import pandas as pd
+import os
 
-tokenizer = AutoTokenizer.from_pretrained("./robertaLarge/checkpoint-2625")
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+
+tokenizer = AutoTokenizer.from_pretrained("./robertaLargeNil/checkpoint-2772")
 model = AutoModelForQuestionAnswering.from_pretrained(
-    "./robertaLarge/checkpoint-2625", return_dict=False
+    "./robertaLargeNil/checkpoint-2772", return_dict=False
 ).to("cuda:0")
 
 
@@ -120,11 +123,6 @@ def make_prediction(data_entry, nil_prediction):
 
 
 def get_dataset(ds_path):
-    if ds_path == "./test.jsonl":
-        with open(ds_path, "r") as file:
-            dataset = json.load(file)
-            return dataset
-
     dataset = []
 
     with open(ds_path, "r") as file:
@@ -137,19 +135,13 @@ def get_dataset(ds_path):
 
 
 ds_names = [
-    # "aida",
-    # "msnbc",
-    # "ace2004",
-    # "aquaint",
-    # "clueweb",
-    "wiki",
+    "wnum",
 ]
 
 preformances = []
 
 for dataset in tqdm(ds_names):
-    ds = get_dataset(f"./nil-el-test.jsonl")
-    print(len(ds))
+    ds = get_dataset(f"./Datasets/Base/IncrementalWNUM.jsonl")
     results = []
     for item in tqdm(ds):
         try:
@@ -188,4 +180,4 @@ for dataset in tqdm(ds_names):
         }
     )
 perf_df = pd.DataFrame(preformances)
-perf_df.to_csv("./results/nil_base.csv")
+perf_df.to_csv("./results/baseWNUM.csv")

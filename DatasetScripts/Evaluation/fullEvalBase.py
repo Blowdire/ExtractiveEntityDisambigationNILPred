@@ -6,6 +6,8 @@ import gc
 import torch.nn.functional as F
 from tqdm import tqdm
 import pandas as pd
+import random
+import numpy as np
 
 tokenizer = AutoTokenizer.from_pretrained("./robertaLargeInstanceOf/checkpoint-17500")
 model = AutoModelForQuestionAnswering.from_pretrained(
@@ -23,6 +25,10 @@ def check_brackets(input_string):
             if not stack or brackets[stack.pop()] != char:
                 return False
     return not stack
+
+
+def entropy(p):
+    return -np.sum(p * np.log2(p))
 
 
 def process_answer(answer, candidates):
@@ -78,6 +84,10 @@ def make_prediction(data_entry, nil_prediction):
         )
         start_scores = F.softmax(start_scores, dim=1)
         end_scores = F.softmax(end_scores, dim=1)
+        startEntropy = entropy(start_scores[0].cpu().numpy())
+        endEntropy = entropy(end_scores[0].cpu().numpy())
+        # calculate mean entropy
+        meanEntropy = (startEntropy + endEntropy) / 2
         # start_scores.to("cpu")
         # end_scores.to("cpu")
         start = torch.argmax(
@@ -96,12 +106,11 @@ def make_prediction(data_entry, nil_prediction):
 
         answer = process_answer(tokenizer.decode(answer_tokens), context)
         classified = 0
-        if nil_prediction:
-            if (mean_score < 0.494949) and nil_prediction:
+        if (meanEntropy > 0.5785785785785785) and nil_prediction:
+            answer = "Not In Candidates"
+        else:
+            if answer == "":
                 answer = "Not In Candidates"
-            else:
-                if answer == "":
-                    answer = "Not In Candidates"
         del encodings
         del end_scores
         del start_scores
@@ -111,7 +120,7 @@ def make_prediction(data_entry, nil_prediction):
         gc.collect()
         torch.cuda.empty_cache()
         return {
-            "correct": data_entry["answer"],
+            "correct": data_entry["output"],
             "non_processed": tokenizer.decode(answer_tokens),
             "predicted": answer,
             "input_phrase": question,
@@ -133,22 +142,22 @@ def get_dataset(ds_path):
 
 
 ds_names = [
-    # "aida",
-    # "msnbc",
-    # "ace2004",
-    # "aquaint",
-    # "clueweb",
-    "zeshel",
+    "aida",
+    "msnbc",
+    "ace2004",
+    "aquaint",
+    "clueweb",
+    "wiki",
 ]
 
 preformances = []
 
 for dataset in tqdm(ds_names):
-    ds = get_dataset(f"./Datasets/InstanceOf/zeshel.jsonl")
+    ds = get_dataset(f"./Datasets/InstanceOf/{dataset}_test_instanceof-nil.jsonl")
     results = []
     for item in tqdm(ds):
         try:
-            pred = make_prediction(item, False)
+            pred = make_prediction(item, True)
             results.append(pred)
         except Exception as e:
             print(e)
@@ -159,13 +168,13 @@ for dataset in tqdm(ds_names):
     wrong_nil = 0
     for result in tqdm(results):
         processed = process_answer(result["predicted"], result["candidates"])
-        if processed == result["correct"]:
+        if processed == result["correct"][0]["answer"]:
             correct += 1
             correct_trace.append(result)
             if processed == "Not In Candidates":
                 correct_nil += 1
         else:
-            if result["correct"] == "Not In Candidates":
+            if result["correct"][0]["answer"] == "Not In Candidates":
                 wrong_nil += 1
             wrong.append(result)
     acc = correct / len(results)
@@ -183,4 +192,4 @@ for dataset in tqdm(ds_names):
         }
     )
 perf_df = pd.DataFrame(preformances)
-perf_df.to_csv("./results/zeshelbaseIOF.csv")
+perf_df.to_csv("./results/base.csv")

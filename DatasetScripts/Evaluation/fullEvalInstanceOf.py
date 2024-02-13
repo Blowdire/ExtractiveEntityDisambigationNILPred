@@ -6,13 +6,10 @@ import gc
 import torch.nn.functional as F
 from tqdm import tqdm
 import pandas as pd
-import os
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-
-tokenizer = AutoTokenizer.from_pretrained("./robertaLargeNil/checkpoint-2772")
+tokenizer = AutoTokenizer.from_pretrained("./robertaLargeIofNil/checkpoint-2178")
 model = AutoModelForQuestionAnswering.from_pretrained(
-    "./robertaLargeNil/checkpoint-2772", return_dict=False
+    "./robertaLargeIofNil/checkpoint-2178", return_dict=False
 ).to("cuda:0")
 
 
@@ -99,11 +96,12 @@ def make_prediction(data_entry, nil_prediction):
 
         answer = process_answer(tokenizer.decode(answer_tokens), context)
         classified = 0
-        if (mean_score < 0.494949) and nil_prediction:
-            answer = "Not In Candidates"
-        else:
-            if answer == "":
+        if not nil_prediction:
+            if (mean_score < 0.494949) and nil_prediction:
                 answer = "Not In Candidates"
+            else:
+                if answer == "":
+                    answer = "Not In Candidates"
         del encodings
         del end_scores
         del start_scores
@@ -113,7 +111,7 @@ def make_prediction(data_entry, nil_prediction):
         gc.collect()
         torch.cuda.empty_cache()
         return {
-            "correct": data_entry["output"],
+            "correct": data_entry["answer"],
             "non_processed": tokenizer.decode(answer_tokens),
             "predicted": answer,
             "input_phrase": question,
@@ -135,13 +133,19 @@ def get_dataset(ds_path):
 
 
 ds_names = [
-    "wnum",
+    # "aida",
+    # "msnbc",
+    # "ace2004",
+    # "aquaint",
+    "clueweb",
+    "wiki",
+    # "zeshel",
 ]
 
 preformances = []
 
 for dataset in tqdm(ds_names):
-    ds = get_dataset(f"./Datasets/Base/msnbc-test-kilt-nil.jsonl")
+    ds = get_dataset(f"./Datasets/InstanceOf/{dataset}-test-kilt.jsonl")
     results = []
     for item in tqdm(ds):
         try:
@@ -156,13 +160,13 @@ for dataset in tqdm(ds_names):
     wrong_nil = 0
     for result in tqdm(results):
         processed = process_answer(result["predicted"], result["candidates"])
-        if processed == result["correct"][0]["answer"]:
+        if processed == result["correct"]:
             correct += 1
             correct_trace.append(result)
             if processed == "Not In Candidates":
                 correct_nil += 1
         else:
-            if result["correct"][0]["answer"] == "Not In Candidates":
+            if result["correct"] == "Not In Candidates":
                 wrong_nil += 1
             wrong.append(result)
     acc = correct / len(results)
@@ -180,4 +184,4 @@ for dataset in tqdm(ds_names):
         }
     )
 perf_df = pd.DataFrame(preformances)
-perf_df.to_csv("./results/baseWNUM.csv")
+perf_df.to_csv("./results/zeshelbaseIOF.csv")

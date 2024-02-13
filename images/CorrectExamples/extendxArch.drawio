@@ -1,0 +1,46 @@
+<mxfile host="Electron" modified="2024-02-07T15:04:05.440Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.18 Chrome/120.0.6099.199 Electron/28.1.2 Safari/537.36" etag="D9t-jLIeJ7deIJ33cEZK" version="22.1.18" type="device">
+  <diagram name="Page-1" id="HfUtQ_xj1vfoAoaEP_-Y">
+    <mxGraphModel dx="1434" dy="878" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="6g0EqkkymMBAY-jNp47V-8" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="10" width="620" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="6g0EqkkymMBAY-jNp47V-1" value="Roberta Large" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6g0EqkkymMBAY-jNp47V-2" value="Question answering Head" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="230" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6g0EqkkymMBAY-jNp47V-3" value="End Logits" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="450" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6g0EqkkymMBAY-jNp47V-4" value="Start Logits" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="450" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6g0EqkkymMBAY-jNp47V-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="6g0EqkkymMBAY-jNp47V-2" target="6g0EqkkymMBAY-jNp47V-4" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="430" as="sourcePoint" />
+            <mxPoint x="450" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6g0EqkkymMBAY-jNp47V-6" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="6g0EqkkymMBAY-jNp47V-2" target="6g0EqkkymMBAY-jNp47V-3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="130" as="sourcePoint" />
+            <mxPoint x="460" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6g0EqkkymMBAY-jNp47V-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="6g0EqkkymMBAY-jNp47V-1" target="6g0EqkkymMBAY-jNp47V-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="130" as="sourcePoint" />
+            <mxPoint x="460" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6g0EqkkymMBAY-jNp47V-10" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;ExtendX&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="20" y="10" width="80" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

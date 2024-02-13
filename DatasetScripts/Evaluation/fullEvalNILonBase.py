@@ -6,11 +6,10 @@ import gc
 import torch.nn.functional as F
 from tqdm import tqdm
 import pandas as pd
-import random
 
-tokenizer = AutoTokenizer.from_pretrained("./robertaLargeInstanceOf/checkpoint-17500")
+tokenizer = AutoTokenizer.from_pretrained("./robertaLargeNil/checkpoint-2772")
 model = AutoModelForQuestionAnswering.from_pretrained(
-    "./robertaLargeInstanceOf/checkpoint-17500", return_dict=False
+    "./robertaLargeNil/checkpoint-2772", return_dict=False
 ).to("cuda:0")
 
 
@@ -57,9 +56,6 @@ def make_prediction(data_entry, nil_prediction):
     with torch.no_grad():
         question = data_entry["input"]
         context = ""
-        # Randomize candidates
-
-        random.shuffle(data_entry["candidates"])
         # if nil_prediction:
         #     context += " Not In Candidates </ec> "
         index = 0
@@ -68,10 +64,10 @@ def make_prediction(data_entry, nil_prediction):
             context += item + f" </ec> "
             index += 1
             if index == 1 and nil_prediction:
-                context += " Not In Candidates : instance of Unknown </ec> "
+                context += " Not In Candidates </ec> "
                 added = True
         if not added and nil_prediction:
-            context = " Not In Candidates : instance of Unknown </ec> " + context
+            context = " Not In Candidates </ec> " + context
         input_pairs = [question, context]
 
         encodings = tokenizer.encode_plus(
@@ -100,11 +96,12 @@ def make_prediction(data_entry, nil_prediction):
 
         answer = process_answer(tokenizer.decode(answer_tokens), context)
         classified = 0
-        if (mean_score < 0.494949) and nil_prediction:
-            answer = "Not In Candidates"
-        else:
-            if answer == "":
+        if not nil_prediction:
+            if (mean_score < 0.494949) and nil_prediction:
                 answer = "Not In Candidates"
+            else:
+                if answer == "":
+                    answer = "Not In Candidates"
         del encodings
         del end_scores
         del start_scores
@@ -114,7 +111,7 @@ def make_prediction(data_entry, nil_prediction):
         gc.collect()
         torch.cuda.empty_cache()
         return {
-            "correct": data_entry["output"],
+            "correct": data_entry["output"][0]["answer"],
             "non_processed": tokenizer.decode(answer_tokens),
             "predicted": answer,
             "input_phrase": question,
@@ -136,18 +133,18 @@ def get_dataset(ds_path):
 
 
 ds_names = [
-    # "aida",
-    # "msnbc",
-    # "ace2004",
-    # "aquaint",
-    # "clueweb",
+    "aida",
+    "msnbc",
+    "ace2004",
+    "aquaint",
+    "clueweb",
     "wiki",
 ]
 
 preformances = []
 
 for dataset in tqdm(ds_names):
-    ds = get_dataset(f"./nil_el_test_instanceof.jsonl")
+    ds = get_dataset(f"./Datasets/Base/{dataset}-test-kilt.jsonl")
     results = []
     for item in tqdm(ds):
         try:
@@ -162,13 +159,13 @@ for dataset in tqdm(ds_names):
     wrong_nil = 0
     for result in tqdm(results):
         processed = process_answer(result["predicted"], result["candidates"])
-        if processed == result["correct"][0]["answer"]:
+        if processed == result["correct"]:
             correct += 1
             correct_trace.append(result)
             if processed == "Not In Candidates":
                 correct_nil += 1
         else:
-            if result["correct"][0]["answer"] == "Not In Candidates":
+            if result["correct"] == "Not In Candidates":
                 wrong_nil += 1
             wrong.append(result)
     acc = correct / len(results)
@@ -186,4 +183,4 @@ for dataset in tqdm(ds_names):
         }
     )
 perf_df = pd.DataFrame(preformances)
-perf_df.to_csv("./results/nil_iof.csv")
+perf_df.to_csv("./results/base.csv")
